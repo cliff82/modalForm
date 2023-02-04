@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Login Form</title>
+    <style>
+
+body {
+  background-color: black;
+  font-family: cursive;
+}
+
+#glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #a9e600, 0 0 40px #a9e600, 0 0 50px #a9e600, 0 0 60px #a9e600, 0 0 70px #a9e600;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #3ff82e, 0 0 40px #3ff82e, 0 0 50px #3ff82e, 0 0 60px #3ff82e, 0 0 70px #3ff82e, 0 0 80px #3ff82e;
+  }
+}
+
+        #login {
+            position: absolute;
+            left: 30%;
+            top: 30%;
+            width: 100px;
+            height: 100px;
+            border-radius: 25%;
+        }
+
+        /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 15px;
+  top: 15px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #7ab0f6;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid rgb(42, 63, 223);
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  /* Position it in the top right corner outside of the modal */
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Close button on hover */
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+.imgcontainer {
+    display: flex;
+    justify-content: center;
+    animation: happy 5s infinite;
+}
+
+img {
+    border-radius: 50%;
+    
+}
+
+.container  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 35px;
+}
+
+input {
+    background-image: url(/pics/happy.jpeg);
+    background-repeat: repeat-x;
+    background-size: 15px;
+    
+}
+
+.container {
+color: rgb(9, 17, 174);
+}
+
+button {
+    background-color: rgb(216, 175, 11);
+}
+
+a {
+    display: flex;
+    align-items: center;
+}
+
+.bottomCon {
+  background-size: 100px;
+  background-image: url('/pics/happy.jpeg');
+  background-position-x: left;
+  animation: happy 7s infinite;
+}
+
+@keyframes happy {
+  50% {background-position-x: center;}
+}
+
+
+    </style>
+</head>
+<body>
+
+    <p id="glow">This is a Login Button</p>
+    
+    <button id="login" onclick="document.getElementById('id01').style.display='block'">Login</button>
+
+<!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <img id="face"  src="/pics/happy.jpeg" alt="happy" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Name" name="psw" required>
+
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container bottomCon" style="background-color:rgb(216, 175, 11)">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    document.getElementById("face").addEventListener("mouseover", mouseOver);
+document.getElementById("face").addEventListener("mouseout", mouseOut);
+
+function mouseOver() {
+ const happy3 = document.getElementById("face").src = "/pics/happy4.jpeg";
+ 
+}
+
+function mouseOut() {
+  document.getElementById("face").src = "/pics/happy.jpeg";
+}
+    </script>
+</body>
+</html>
